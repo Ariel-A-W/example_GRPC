@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer.Protos";
+
+service Stocker 
+{
+    rpc GetAllAsync(EmptyParams) returns (StockAllResponse);
+
+    rpc GetByIdAsync(StockByIdRequest) returns (StockResponse);
+}
+
+message EmptyParams {} 
+
+message StockByIdRequest
+{
+    int32 Id = 1;
+}
+
+message StockAllResponse 
+{
+    repeated StockResponse stocks = 1;
+}
+
+message StockResponse 
+{
+    int32 Id = 1; 
+    string Producto = 2; 
+    int32 Cantidad = 3; 
+    float Precio = 4;
+}

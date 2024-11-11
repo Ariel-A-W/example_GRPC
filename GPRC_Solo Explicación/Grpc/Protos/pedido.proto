@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "Grpc.Protos";
+
+service Pedido {
+    rpc GetPedido (PedidoRequest) returns (PedidoResponse);
+}
+
+message PedidoRequest {
+    int32 pedidoId = 1;
+}
+
+message PedidoResponse {
+    int32 pedidoId = 1;
+    string descripcion = 2;
+    float precio = 3;
+}
